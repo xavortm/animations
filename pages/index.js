@@ -1,19 +1,8 @@
 import Head from "next/head";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-
-const SiteWrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  width: 100%;
-  height: 100%;
-
-  h1 {
-    font-family: ShadowsIntoLight;
-  }
-`;
 
 export default function Home() {
   return (
@@ -25,17 +14,65 @@ export default function Home() {
       </Head>
       <SiteWrapper>
         <Header />
-        <main>
-          <header>
+        <MainWrapper>
+          <HeaderWrapper>
             <h1>Welcome to my Animation showcase</h1>
             <p>
               I have prepared a few demos, feel free to pick any of them to see
               it
             </p>
-          </header>
-        </main>
+          </HeaderWrapper>
+        </MainWrapper>
         <Footer />
       </SiteWrapper>
     </>
   );
 }
+
+const showHeadline = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
+const HeaderWrapper = styled.header`
+  text-align: center;
+  padding: 0 var(--mobile-gutter);
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2em, 5vw, 5em);
+
+    animation: ${showHeadline} 1s ease-in 1s;
+    animation-fill-mode: both;
+  }
+
+  p {
+    margin: 1em 0 0 0;
+    font-size: 1.25em;
+
+    animation: ${showHeadline} 0.5s ease-in 2s;
+    animation-fill-mode: both;
+  }
+`;
+
+const MainWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const SiteWrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    font-family: ShadowsIntoLight;
+  }
+`;

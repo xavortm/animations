@@ -31,3 +31,10 @@ a {
 ::selection {
   background: yellow;
 }
+
+:root {
+  --mobile-gutter: 1rem;
+
+  --color-foreground: black;
+  --color-background: white;
+}
