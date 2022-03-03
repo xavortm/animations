@@ -39,6 +39,7 @@ a {
 
   --color-foreground: black;
   --color-background: white;
+  --color-border: #ddd;
   --color-primary: #d23226;
 
   --site-width: 60rem;
