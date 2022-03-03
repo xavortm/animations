@@ -1,10 +1,31 @@
 import Head from "next/head";
+import Link from "next/link";
 import styled, { keyframes } from "styled-components";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
 
+const pages = [
+  {
+    id: 1,
+    href: "/logo",
+    text: "Logo Animation",
+  },
+];
+
 export default function Home() {
+  const PageLinks = pages.map((page, idx) => {
+    const animationDelay = `--delay: ${idx * 20}ms`;
+    console.log(idx);
+    return (
+      <ListItem key={page.id} style={animationDelay}>
+        <Link href={page.href}>
+          <a>{page.text}</a>
+        </Link>
+      </ListItem>
+    );
+  });
+
   return (
     <>
       <Head>
@@ -21,6 +42,8 @@ export default function Home() {
               I have prepared a few demos, feel free to pick any of them to see
               it
             </p>
+
+            <List>{PageLinks}</List>
           </HeaderWrapper>
         </MainWrapper>
         <Footer />
@@ -74,5 +97,34 @@ const SiteWrapper = styled.div`
 
   h1 {
     font-family: ShadowsIntoLight;
+  }
+`;
+
+const List = styled.ul`
+  margin: 2em;
+  padding: 0;
+  list-style-type: none;
+`;
+
+const ListItem = styled.li`
+  a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    border: 2px solid #ddd;
+    font-weight: 500;
+    transition: 0.2s;
+
+    &:hover {
+      transition: 0.2s;
+      border-color: red;
+      color: red;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transition: 0.2s;
+      transform: scale(0.9);
+    }
   }
 `;
