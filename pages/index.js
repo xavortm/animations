@@ -15,10 +15,10 @@ const pages = [
 
 export default function Home() {
   const PageLinks = pages.map((page, idx) => {
-    const animationDelay = `--delay: ${idx * 20}ms`;
-    console.log(idx);
+    const style = { "--delay": (idx + 1) * 20 + 500 + "ms" };
+
     return (
-      <ListItem key={page.id} style={animationDelay}>
+      <ListItem key={page.id} style={style}>
         <Link href={page.href}>
           <a>{page.text}</a>
         </Link>
@@ -52,13 +52,15 @@ export default function Home() {
   );
 }
 
-const showHeadline = keyframes`
+const fadeIn = keyframes`
   0% {
     opacity: 0;
+    transform: scale(0.8);
   }
 
   100% {
     opacity: 1;
+    transform: scale(1);
   }
 `;
 
@@ -70,7 +72,7 @@ const HeaderWrapper = styled.header`
     margin: 0;
     font-size: clamp(2em, 5vw, 5em);
 
-    animation: ${showHeadline} 1s ease-in 1s;
+    animation: ${fadeIn} 1s ease-in-out 0s;
     animation-fill-mode: both;
   }
 
@@ -78,7 +80,7 @@ const HeaderWrapper = styled.header`
     margin: 1em 0 0 0;
     font-size: 1.25em;
 
-    animation: ${showHeadline} 0.5s ease-in 2s;
+    animation: ${fadeIn} 0.75s ease-in-out 0.25s;
     animation-fill-mode: both;
   }
 `;
@@ -114,6 +116,9 @@ const ListItem = styled.li`
     border: 2px solid #ddd;
     font-weight: 500;
     transition: 0.2s;
+    animation: ${fadeIn} 0.5s ease-in-out 2s;
+    animation-delay: var(--delay);
+    animation-fill-mode: both;
 
     &:hover {
       transition: 0.2s;
