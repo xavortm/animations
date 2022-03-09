@@ -11,6 +11,11 @@ const pages = [
     href: "/logo",
     text: "Logo Animation",
   },
+  {
+    id: 1,
+    href: "/search",
+    text: "Search",
+  },
 ];
 
 export default function Home() {
@@ -98,7 +103,12 @@ const SiteWrapper = styled.div`
   height: 100%;
 
   h1 {
-    font-family: ShadowsIntoLight;
+    letter-spacing: -0.01em;
+    font-size: 3em;
+  }
+
+  p {
+    font-family: var(--font-secondary);
   }
 `;
 
@@ -106,6 +116,9 @@ const List = styled.ul`
   margin: 2em;
   padding: 0;
   list-style-type: none;
+  gap: 1em;
+  display: flex;
+  justify-content: center;
 `;
 
 const ListItem = styled.li`

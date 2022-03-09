@@ -77,6 +77,7 @@ const SVGWrapper = styled.div`
   justify-content: center;
   border-radius: 50%;
   position: relative;
+  position: relative;
 
   svg {
     position: relative;
