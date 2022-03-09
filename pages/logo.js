@@ -69,15 +69,15 @@ const animateBG = keyframes`
 `;
 
 const SVGWrapper = styled.div`
-  width: 40em;
-  height: 40em;
+  width: 30em;
+  height: 30em;
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   position: relative;
-  position: relative;
+  margin: 0 auto;
 
   svg {
     position: relative;

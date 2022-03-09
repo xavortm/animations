@@ -16,6 +16,11 @@ const pages = [
     href: "/search",
     text: "Search",
   },
+  {
+    id: 3,
+    href: "/quiz",
+    text: "Quiz",
+  },
 ];
 
 export default function Home() {
